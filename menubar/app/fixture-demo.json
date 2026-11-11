@@ -1,0 +1,104 @@
+{
+ "v": 1,
+ "at": "2030-03-12T16:51:00-03:00",
+ "market": "abierto",
+ "mode": "simulado",
+ "demo": true,
+ "bot": {
+  "ok": true,
+  "summary": "5 plazos · 0 pico(s) · 0 orden(es) · simulado (dry-run)",
+  "at": "2030-03-12T16:51:00-03:00"
+ },
+ "day": {
+  "kind": "normal",
+  "high": false,
+  "final_at": "16:50"
+ },
+ "money": {
+  "total": 1000000.0,
+  "free": 450000.0,
+  "in_caucion": 300000.0,
+  "in_fund": 250000.0,
+  "in_fund_pending": 0.0,
+  "money_at": "2030-03-12T16:51:00-03:00"
+ },
+ "yield": {
+  "working_tna": 39.45,
+  "per_day": 594.52,
+  "month_projection": 17835.62,
+  "fund_tna": 31.0
+ },
+ "earned": {
+  "cauciones_month": 315.53,
+  "cauciones_total": 315.53,
+  "fund_unrealized": 1500.0
+ },
+ "cauciones": [
+  {
+   "amount": 300000.0,
+   "rate": 46.5,
+   "due": "2030-03-15",
+   "days": 3,
+   "interest": 1128.43,
+   "filled": true
+  }
+ ],
+ "fund": {
+  "symbol": "DEMOMM",
+  "name": "DEMOMM",
+  "value": 250000.0,
+  "tna": 31.0,
+  "pending": 0.0
+ },
+ "today": [
+  {
+   "time": "12:40",
+   "kind": "Pico",
+   "term": "3 días hábiles",
+   "rate": 46.5,
+   "amount": 300000.0,
+   "status": "colocada",
+   "ok": true,
+   "why": "pico: 3 días hábiles paga 48% contra 31% de referencia",
+   "error": null
+  },
+  {
+   "time": "16:51",
+   "kind": "Cierre",
+   "term": "1 día hábil",
+   "rate": 32.0,
+   "amount": 450000.0,
+   "status": "simulada",
+   "ok": true,
+   "why": "pesos libres al cierre: el mejor plazo corto es 1 día hábil",
+   "error": null
+  }
+ ],
+ "rates": [
+  {
+   "bdays": 1,
+   "days": 1,
+   "take": 32.0,
+   "offer": 33.5,
+   "ref": 30.5,
+   "ref_source": "iol"
+  },
+  {
+   "bdays": 2,
+   "days": 2,
+   "take": 32.5,
+   "offer": 34.0,
+   "ref": 31.0,
+   "ref_source": "iol"
+  },
+  {
+   "bdays": 3,
+   "days": 3,
+   "take": 33.0,
+   "offer": 34.5,
+   "ref": 31.5,
+   "ref_source": "iol"
+  }
+ ],
+ "summary": null
+}

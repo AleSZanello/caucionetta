@@ -1,0 +1,30 @@
+39,5% | sfimage=chart.line.uptrend.xyaxis
+---
+Cauciones · simulado · DEMO | color=#c9731c,#f0a35c size=13
+Total  $ 1.000.000 | font=Menlo size=13
+En caución  $ 300.000 | font=Menlo size=12 color=#8a8a8a,#9a9a9a
+En el fondo  $ 250.000 | font=Menlo size=12 color=#8a8a8a,#9a9a9a
+Libre  $ 450.000 | font=Menlo size=12 color=#8a8a8a,#9a9a9a
+Rinde 39,5% TNA · $ 595 por día | size=12
+---
+Trabajando ahora | size=11 color=#8a8a8a,#9a9a9a
+$ 300.000 al 46,5% · vence 15/03 · +$ 1.128 | font=Menlo size=12 sfimage=lock.fill
+$ 250.000 en DEMOMM al 31,0% | font=Menlo size=12 sfimage=parkingsign.circle
+---
+Hoy (2) | size=11 color=#8a8a8a,#9a9a9a
+12:40 Pico 3 días hábiles 46,5% · colocada | size=12 color=#2e9d5b,#5fd38d
+--pico: 3 días hábiles paga 48% contra 31% de referencia | size=11
+16:51 Cierre 1 día hábil 32,0% · simulada | size=12 color=#2e9d5b,#5fd38d
+--pesos libres al cierre: el mejor plazo corto es 1 día hábil | size=11
+---
+Tasas · día normal · coloca 16:50 | size=11 color=#8a8a8a,#9a9a9a
+1 día hábil       32,0%  ref 30,5% | font=Menlo size=12
+2 días hábiles    32,5%  ref 31,0% | font=Menlo size=12
+3 días hábiles    33,0%  ref 31,5% | font=Menlo size=12
+---
+Actualizado 16:51 · mercado abierto | size=11 color=#8a8a8a,#9a9a9a
+Actualizar | bash=caucionetta param1=status param2=--refresh terminal=false refresh=true sfimage=arrow.clockwise
+Pausar | bash=caucionetta param1=bot param2=pause terminal=false refresh=true sfimage=pause.fill
+Ocultar montos | bash=/usr/bin/touch param1=~/.local/state/caucionetta/bar-hide-amounts terminal=false refresh=true sfimage=eye.slash
+Abrir el log | bash=/usr/bin/open param1=-t param2=~/.local/state/caucionetta/bot.log terminal=false sfimage=doc.text
+No oficial · no es asesoramiento financiero | size=10 color=#8a8a8a,#9a9a9a

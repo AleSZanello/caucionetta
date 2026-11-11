@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1220" height="391" viewBox="0 0 1220 391" role="img"
+ aria-label="caucionetta en la terminal, modo demo con datos ficticios">
+<rect width="1220" height="391" rx="10" fill="#1e2127"/>
+<rect width="1220" height="30" rx="10" fill="#2a2e35"/><rect y="20" width="1220" height="10" fill="#2a2e35"/>
+<circle cx="18" cy="15" r="6" fill="#ff5f57"/><circle cx="38" cy="15" r="6" fill="#febc2e"/><circle cx="58" cy="15" r="6" fill="#28c840"/>
+<text x="610" y="19" fill="#8b9099" font-family="-apple-system,Segoe UI,sans-serif" font-size="12"
+ text-anchor="middle">caucionetta — demo (datos ficticios)</text>
+<g font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="13">
+<text x="22" y="68"><tspan fill="#5fd38d">$ </tspan><tspan fill="#f2f2f2">caucionetta status</tspan></text>
+<text x="22" y="87" fill="#f0a35c" xml:space="preserve">caucionetta · simulado · mercado abierto · 2030-03-12 16:51  [DEMO: datos ficticios]</text>
+<text x="22" y="106" fill="#c9ccd1" xml:space="preserve">  Total           $ 1.000.000</text>
+<text x="22" y="125" fill="#c9ccd1" xml:space="preserve">  En caución        $ 300.000</text>
+<text x="22" y="144" fill="#c9ccd1" xml:space="preserve">  En el fondo       $ 250.000</text>
+<text x="22" y="163" fill="#c9ccd1" xml:space="preserve">  Libre             $ 450.000</text>
+<text x="22" y="182" fill="#c9ccd1" xml:space="preserve">  Rinde        39,5% TNA lo que trabaja · $ 595 por día</text>
+<text x="22" y="201" fill="#c9ccd1" xml:space="preserve">  · caución $ 300.000 al 46,5%, vence 2030-03-15 (3 días), +$ 1.128</text>
+<text x="22" y="220" fill="#c9ccd1" xml:space="preserve">  · fondo DEMOMM $ 250.000 al 31,0%</text>
+<text x="22" y="239" fill="#c9ccd1" xml:space="preserve">  Hoy:</text>
+<text x="22" y="258" fill="#c9ccd1" xml:space="preserve">    12:40 Pico     3 días hábiles         46,5%    $ 300.000  colocada — pico: 3 días hábiles paga 48% contra 31% de referencia</text>
+<text x="22" y="277" fill="#c9ccd1" xml:space="preserve">  Día normal · colocación final 16:50</text>
+<text x="22" y="296" fill="#c9ccd1" xml:space="preserve"></text>
+<text x="22" y="315"><tspan fill="#5fd38d">$ </tspan><tspan fill="#f2f2f2">caucionetta bot once</tspan></text>
+<text x="22" y="334" fill="#f0a35c" xml:space="preserve">2030-03-12 16:51 · SIMULADO (dry-run: falta `live = true` en el config)</text>
+<text x="22" y="353" fill="#c9ccd1" xml:space="preserve">  3 plazos · 0 pico(s) · 1 orden(es) · simulado (dry-run)</text>
+<text x="22" y="372" fill="#f0a35c" xml:space="preserve">  → colocaría: final a 1 día hábil, $ 450.000 con límite 32,0% (neto 29,8%) — pesos libres al cierre: el mejor plazo corto es 1 día hábil</text>
+</g></svg>

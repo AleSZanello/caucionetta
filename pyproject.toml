@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "caucionetta"
+version = "0.1.0"
+description = "Unofficial toolkit for the InvertirOnline (IOL) API: CLI, caución bot (dry-run by default), menu bar status and an MCP server."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+authors = [{ name = "caucionetta contributors" }]
+keywords = ["invertironline", "iol", "caucion", "argentina", "mcp", "cli"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: MacOS",
+  "Operating System :: POSIX :: Linux",
+  "Environment :: Console",
+  "Topic :: Office/Business :: Financial :: Investment",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+caucionetta = "caucionetta.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["caucionetta"]
+
+[tool.hatch.build.targets.sdist]
+include = ["caucionetta", "tests", "menubar", "launchd", "docs", "README.md", "LICENSE", "AGENTS.md", "CONTRIBUTING.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 145
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["E731", "UP031"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["B008", "B007"]

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Template of what `caucionetta install-agent` writes to ~/Library/LaunchAgents/org.caucionetta.bot.plist.
+  Replace {{CAUCIONETTA}} with the absolute path of the caucionetta executable and {{STATE}} with your state dir
+  (default: ~/.local/state/caucionetta, written out in full). Runs one bot pass every minute; the bot throttles itself.
+  It stays in dry-run unless the config has live = true AND you add <string>--live</string> after "once".
+  Load:   launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/org.caucionetta.bot.plist
+  Unload: launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/org.caucionetta.bot.plist
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>org.caucionetta.bot</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>{{CAUCIONETTA}}</string>
+    <string>bot</string>
+    <string>once</string>
+  </array>
+  <key>StartInterval</key><integer>60</integer>
+  <key>RunAtLoad</key><true/>
+  <key>ProcessType</key><string>Background</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key><string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    <key>PYTHONUNBUFFERED</key><string>1</string>
+  </dict>
+  <key>StandardOutPath</key><string>{{STATE}}/launchd.log</string>
+  <key>StandardErrorPath</key><string>{{STATE}}/launchd.log</string>
+</dict>
+</plist>

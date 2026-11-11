@@ -1,0 +1,86 @@
+# caucionetta — ejemplo de configuración (~/.config/caucionetta/config.toml)
+#
+# Todo es opcional: lo que no pongas toma el valor por defecto que ves acá. Los valores son un punto de
+# partida neutro, NO una recomendación. Ajustalos a tu situación. Las credenciales NUNCA van en este archivo:
+# usá `caucionetta auth` (Keychain) o las variables CAUCIONETTA_USERNAME / CAUCIONETTA_PASSWORD.
+#
+# No es asesoramiento financiero. Vos sos responsable de las órdenes que se manden desde tu cuenta.
+
+timezone = "America/Argentina/Buenos_Aires"
+
+# Doble confirmación para órdenes reales: live = true acá Y --live en el comando (o --allow-live en el
+# servidor MCP). Con cualquiera de los dos en falso, el bot decide, lo anota y avisa, pero no manda nada.
+live = false
+
+[notify]
+backend = "auto"          # auto | macos | telegram | log | none
+telegram_chat_id = ""     # o CAUCIONETTA_TELEGRAM_CHAT_ID; el token va en CAUCIONETTA_TELEGRAM_BOT_TOKEN o en el Keychain
+
+[auth]
+keychain_service = "caucionetta"
+
+[api]
+max_calls_month = 24000   # sólo avisa al llegar (IOL puede cobrar pasado su cupo gratuito: mirá su tabla)
+timeout_s = 30
+
+[mcp]
+confirm_ttl_s = 120       # cuánto vive un confirmation_id de propose → apply
+
+[bot]
+enabled = true
+currency = "ARS"
+terms_days = [1, 7]       # plazos en días corridos; el de 1 día hábil siempre se permite
+market = ["10:30", "17:00"]
+poll_min = 5              # cada cuánto mira el mercado
+close_watch = ["15:30", "17:00"]
+close_poll_min = 1        # y cada cuánto cerca del cierre
+close_max_bdays = 3
+
+# Límites y circuit breaker: al llegar a cualquiera de los dos, el resto del día es dry-run.
+max_orders_day = 25
+max_errors_day = 3
+max_order_amount = 0      # tope por orden en pesos; 0 = sin tope
+keep_ars = 0              # pesos que el bot nunca toca
+min_amount = 1000         # no manda órdenes más chicas que esto
+min_net_tna = 0.0         # saltea si la TNA neta de comisiones no supera esto
+idle_alert_ars = 0        # avisar si quedan al menos estos pesos sin colocar al cierre; 0 = no avisar
+
+# Colocación final: lo que quedó libre va al mejor plazo corto. Distintos horarios según el tipo de día.
+final_at = "16:50"
+final_at_high = "16:45"     # cierre largo + fin de mes / temporada
+final_at_bridge = "16:55"   # antes de un cierre bancario de 4+ días
+final_at_monthend = "16:15" # fin de mes o temporada
+final_at_friday = "16:25"
+last_call = "16:58"
+fill_timeout_min = 10       # una orden "take" sin llenar se cancela después de esto
+final_fill_timeout_min = 2
+post_close = ["17:00", "17:15"]
+lock_premium_pp_per_day = 1.0  # cuántos puntos por día hábil extra tiene que pagar un plazo más largo
+stress_ratio = 1.25            # tasa de hoy / referencia que cuenta como racha de estrés (sigue a 1 día)
+book_sides = "doc"             # "doc" (ask = tomador) o "swapped" si tu libro se ve al revés
+
+# Días de picos probables: órdenes límite que esperan en el libro a un múltiplo de la referencia.
+ladder_enabled = true
+ladder_from = "14:00"
+ladder = [[2.0, 30], [3.0, 60]]   # [multiplicador, mínimo de puntos sobre la referencia]
+
+[bot.spike]
+ratio = 1.5          # un pico es >= ratio × referencia ...
+min_pp = 15          # ... y >= referencia + min_pp puntos
+min_days = 10        # días comunes propios antes de usar la referencia propia (antes: historia de A3)
+baseline_days = 10
+vs_1d_ratio = 1.3    # sin referencia: un plazo largo >= 1,3 × el de 1 día hábil
+
+# Estacionar en money market: APAGADO por defecto. Listá sólo fondos de rescate en el día (T+0) que hayas
+# leído vos; el cliente se niega a operar cualquier fondo que no esté acá.
+[bot.mm]
+enabled = false
+funds = []           # p. ej. ["XXXXXX"]  (el símbolo del fondo en IOL)
+decide_at = "10:35"
+subscribe_by = "14:45"
+rescue_by = "14:55"
+margin_pp = 0.5      # el fondo tiene que pagar al menos esto más que la caución neta
+fee_pp = 2.4         # costo estimado de la caución en puntos de TNA (comisión + IVA)
+window_days = 14
+min_amount = 1000
+tax_rate = 0.0       # alícuota que quieras descontarle a la caución al compararla; consultá a tu contador

@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+
+# Swift app build output
+menubar/app/build/
+
+# Local config, state and secrets: never commit them
+config.toml
+!caucionetta/config.example.toml
+*.sqlite
+*.sqlite-journal
+status.json
+token.json
+calls.json
+state.json
+*.log
+.env
+.env.*
+*.pem
+*.key
+
+# macOS
+.DS_Store
